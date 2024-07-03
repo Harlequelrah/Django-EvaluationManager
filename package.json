@@ -1,0 +1,25 @@
+{
+  "name": "django-evaluationmanager",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:css": "npx tailwindcss -i EvaluationManager/frontend/static/src/styles.css -o EvaluationManager/frontend/static/dist/styles.css",
+    "watch:css": "npx tailwindcss -i EvaluationManager/frontend/static/src/styles.css -o EvaluationManager/frontend/static/dist/styles.css --watch",
+    "build:stimulus": "npx stimulus-webpack-loader --production",
+    "watch:stimulus": "npx stimulus-webpack-loader"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@stimulus/core": "^2.0.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "sass": "^1.77.6"
+  }
+}
