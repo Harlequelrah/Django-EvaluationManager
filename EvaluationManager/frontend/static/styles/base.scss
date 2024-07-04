@@ -1,3 +1,6 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@use 'sass:color';
+$textcolor: #242424;
+$light-purple: #a5b4fc;
+$mix-color:color.mix(cyan,red,43%);
+$dark-purple: darken($light-purple,58%);
+
