@@ -29,8 +29,8 @@ class Student(User):
 
     ]
     cursus = models.CharField(max_length=1, choices=CURSUS_CHOICES)
-    filiere = models.ForeignKey(Filiere, on_delete=models.CASCADE)
-    salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
+    filiere = models.ForeignKey(Filiere, on_delete=models.DO_NOTHING)
+    salle = models.ForeignKey(Salle, on_delete=models.DO_NOTHING)
 
 class Faculty(User):
     def supervise(self):
