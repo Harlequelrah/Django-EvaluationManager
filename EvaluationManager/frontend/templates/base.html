@@ -4,11 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Harlequelrah School</title>
   </head>
   <body>
-    <!-- Contenu -->
-
-    {% render_bundle 'style' 'js' %} {% render_bundle 'script' 'js' %}
+    {% block content %} {% endblock content %} {% render_bundle 'style' 'js' %}
+    {% render_bundle 'script' 'js' %}
   </body>
 </html>

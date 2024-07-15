@@ -5,6 +5,7 @@ from django.apps import apps
 # Create your models here.
 
 
+
 class User(AbstractUser):
     ROLE_CHOICES = [
         ('STUDENT', 'Etudiant'),
@@ -17,9 +18,10 @@ class User(AbstractUser):
         ('F', 'Femme'),
     ]
     profile_photo=models.ImageField(verbose_name='Photo de profil')
-    role=models.CharField(max_length=30,choices=ROLE_CHOICES,verbose_name='Rôle')
-    date_naissance=models.DateField()
+    date_naissance=models.DateField(verbose_name='Date de naissance')
+    lieu_naissance=models.CharField(max_length='30',verbose_name='Lieu de naissance')
     genre=models.CharField(max_length=1,choices=GENDER_CHOICES,verbose_name='Sexe')
+    role=models.CharField(max_length=30,choices=ROLE_CHOICES,verbose_name='Rôle')
     tel_number=PhoneNumberField(verbose_name='Numéro de téléphone')
 
 
