@@ -17,12 +17,12 @@ class User(AbstractUser):
         ('M', 'Homme'),
         ('F', 'Femme'),
     ]
-    profile_photo=models.ImageField(verbose_name='Photo de profil')
+    profile_photo=models.ImageField(verbose_name='Photo de profil',null=True)
     date_naissance=models.DateField(verbose_name='Date de naissance')
-    lieu_naissance=models.CharField(max_length='30',verbose_name='Lieu de naissance')
+    lieu_naissance=models.CharField(max_length=30,verbose_name='Lieu de naissance')
     genre=models.CharField(max_length=1,choices=GENDER_CHOICES,verbose_name='Sexe')
     role=models.CharField(max_length=30,choices=ROLE_CHOICES,verbose_name='Rôle')
-    tel_number=PhoneNumberField(verbose_name='Numéro de téléphone')
+    tel_number=PhoneNumberField(verbose_name='Numéro de téléphone', blank=True)
 
 
     def set_role(self):
@@ -42,6 +42,17 @@ class User(AbstractUser):
         elif isinstance(self, Staff):
             self.role = self.ROLE_CHOICES[2][0]
             staff.user_set.add(self)
+
+
+    @classmethod
+    def create_superuser(cls, username, email, password, **extra_fields):
+        extra_fields.setdefault('is_staff', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('role', 'STAFF')
+        extra_fields.setdefault('lieu_naissance', 'Lome')
+        extra_fields.setdefault('genre', 'M')
+        extra_fields.setdefault('date_naissance', '2000-01-01' )
+        return cls._create_user(username, email, password, **extra_fields)
 
 
     def save(self,*args,**kwargs):

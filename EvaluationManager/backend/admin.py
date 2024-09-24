@@ -29,12 +29,12 @@ class EpreuveAdmin(admin.ModelAdmin):
     search_fields=('cours','date','classe')
 
 class CoursAdmin(admin.ModelAdmin):
-    list_display=('nom')
-    search_fields=('nom')
+    list_display=('nom',)
+    search_fields=('nom',)
 
 class NoteAdmin(admin.ModelAdmin):
-    list_display=('cours','epreuve','note')
-    search_fields=('cours','epreuve','note')
+    list_display=('student','epreuve','note')
+    search_fields=('student','epreuve','note')
 
 class Evaluationdmin(admin.ModelAdmin):
     list_display=('type_evaluation','date_debut','date_fin')

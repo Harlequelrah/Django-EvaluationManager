@@ -91,8 +91,8 @@ class Epreuve(models.Model):
     fin=models.DateTimeField(null=True)
     professeurs = models.ManyToManyField(Professor, related_name='professeur_soummeteur')
     surveillants = models.ManyToManyField(
-        Faculty,
-        limit_choices_to={'role__in': ['PROFESSOR', 'STAFF']},
+        User,
+        limit_choices_to={'faculty__role__in': ['PROFESSOR', 'STAFF']},
         related_name='epreuves_supervisees'
     )
     def get_start_time(self):
